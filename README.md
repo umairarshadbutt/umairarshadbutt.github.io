@@ -1,6 +1,6 @@
 # Umair Arshad Portfolio
 
-![screenshot](img/portfolio.png)
+![screenshot](assets/img/portfolio.png)
 
 ## Built With
 

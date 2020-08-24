@@ -12,6 +12,9 @@ main.site-about article.container div.row section.bio h1 {
   font-size: 2em;
 }
 
+.bio{
+  text-align: center;
+}
 main.site-about article.container header#about-header,
 main.site-experience header#experience-header,
 main.site-education header#education-header,
@@ -412,7 +415,7 @@ main.site-about article.container div.row a.btn {
   font-size: 1em;
   display: inline-block;
   margin: 0 0.5em 0.5em 0;
-  padding: 0.3em;
+  padding: 0.3em 0.5em 0.3em 0.5em;
   background-color: #ba5624;
   color: white;
 }
@@ -451,6 +454,12 @@ main.site-education main.container section.edu-name {
   border-right: 2px #555151 solid;
 }
 
+.fixed-top {
+  top: 29px;
+}
+.fixed-top a{
+  color: #ba5525;
+}
 main.site-education main.container section.edu-name header.edu-degree {
   font-weight: 800;
   font-size: 18px;

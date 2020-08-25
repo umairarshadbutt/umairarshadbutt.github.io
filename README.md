@@ -11,7 +11,7 @@
 </div>
 
 
-![screenshot](assets/screen-shot.png)
+![screenshot](screen-shot.png)
 
 ## Built With
 

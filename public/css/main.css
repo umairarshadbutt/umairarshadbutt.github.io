@@ -11,7 +11,11 @@ main.site-about article.container div.row section.bio h1 {
   font-weight: 800;
   font-size: 2em;
 }
-
+.home_{
+  position: fixed;
+  left: 5%;
+  color: #ba5525;
+}
 .bio{
   text-align: center;
 }

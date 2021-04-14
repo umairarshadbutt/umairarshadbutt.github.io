@@ -409,12 +409,12 @@ main.site-about article.container div.row section.bio h2 {
 
 main.site-about article.container div.row a.btn {
   font-family: "Lato", sans-serif;
-  font-size: 1em;
+  font-size: 1.28em;
   display: inline-block;
   margin: 0 0.5em 0.5em 0;
   padding: 0.3em;
-  background-color: #ba5624;
-  color: white;
+  /* background-color: #ba5624;
+  color: white; */
 }
 
 main.site-experience main.container section.job-name {
@@ -617,6 +617,9 @@ div.footer {
     float: right;
     display: block;
   }
+  .socialmedia {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -630,4 +633,10 @@ div.footer {
     display: block;
     text-align: left;
   }
+}
+.socialmedia {
+  position: fixed;
+  width: 60px;
+  left: 34px;
+  top: 34%;
 }

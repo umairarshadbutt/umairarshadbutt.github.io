@@ -34,87 +34,124 @@
     </head>
 
     <body>
+      <header class="site-header">
+        <nav class="navbar-dark bg-dark">
+          <div class="container justify-content-between">
+            <div class="topnav" id="myTopnav">
+              <a href="/" class="active">Home</a>
+              <a href="./skills.html">Skills</a>
+              <a href="./experience.html">Experience</a>
+              <a href="./education.html">Education</a>
+              <a href="javascript:void(0);" class="icon" onclick="navbar()">
+                <i class="fa fa-bars"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
        
-        <div>
-            <div class="home">
-                <a class="home_" href="/">
-                    <i class="far fa-user-circle"></i>
-                    <span class="sr-only">(current)</span>
-                </a>
-                <main class="site-about">
-                    <article class="container">
-                        <div class="row">
-                            <img src="assets/img/UmairArshad.jpg" alt="face pic" />
-                        </div>
-                        <div class="row">
-                            <div class="col-12 profile">
-                                <section class="bio">
-                                    <h2>UMAIR ARSHAD</h2>
-                                    <p>Software Engineer, Huawei certified in HCIA-AI</p>
-                                </section>
-                                <section class="contact d-flex flex-wrap justify-content-center">
-                                    <a href="https://github.com/umairarshadbutt" role="button" class="btn" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-
-                                    <a href="https://www.linkedin.com/in/umair-arshad-butt/" role="button" class="btn" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="LinkedIn">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                    <a
-                                        href="https://docs.google.com/document/d/1X5MeSFUOQhH1DXZwPCwYVa3xKh5B4DpsTHgCmucW05Q/edit?usp=sharing"
-                                        role="button"
-                                        class="btn"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        data-toggle="tooltip"
-                                        data-placement="bottom"
-                                        title="Resume"
-                                    >
-                                        <i class="far fa-file"></i>
-                                    </a>
-
-                                    <a href="experience.html" role="button" class="btn" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Experience">
-                                        <i class="fas fa-business-time"></i>
-                                    </a>
-
-                                    <!-- <a href="#projects" role="button" class="btn" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Projects">
-                                        <i class="fas fa-tasks"></i>
-                                    </a> -->
-
-                                    <a href="skills.html" role="button" class="btn"  rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Skills">
-                                        <i class="fas fa-laptop-code"></i>
-                                    </a>
-
-                                    <a href="education.html" role="button" class="btn" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Education">
-                                        <i class="fas fa-book-reader"></i>
-                                    </a>
-                                    <a href="https://www.quora.com/profile/Umair-Arshad-75" role="button" class="btn" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Quora">
-                                        <i class="fab fa-quora"></i>
-                                    </a>
-                                    <a href="mailto:umair6622@gmail.com" role="button" class="btn" data-toggle="tooltip" data-placement="bottom" title="umair6622@gmail.com">
-                                        <i class="fas fa-envelope-square"></i>
-                                    </a>
-                                    <a href="tel:+923006622188" role="button" data-toggle="tooltip" data-placement="bottom" title="+923006622188" class="btn">
-                                        <i class="fas fa-phone-volume"></i>
-                                    </a>
-                                </section>
-                            </div>
-                        </div>
-                    </article>
-                </main>
-            </div>
+        
+      </header>
+      <div>
+        <div class="home">
+          <a name="about"></a>
+          <main class="site-about">
+            <article class="container">
+              <div class="row">
+                <img src="assets/img/UmairArshad.jpg" alt="face pic" />
+              </div>
+              <div class="row">
+                <div class="col-12 profile">
+                  <section class="bio">
+                    <h2>UMAIR ARSHAD</h2>
+                    <p>Software Engineer, Huawei certified in HCIA-AI</p>
+                  </section>
+                  <section
+                    class="contact d-flex flex-wrap justify-content-center"
+                  >
+                    <a
+                      href="https://github.com/umairarshadbutt"
+                      role="button"
+                      class="btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="GitHub"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+  
+                    <a
+                      href="https://www.linkedin.com/in/umair-arshad-butt/"
+                      role="button"
+                      class="btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="LinkedIn"
+                    >
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a
+                      href="https://docs.google.com/document/d/1X5MeSFUOQhH1DXZwPCwYVa3xKh5B4DpsTHgCmucW05Q/edit?usp=sharing"
+                      role="button"
+                      class="btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Resume"
+                    >
+                      <i class="far fa-file"></i>
+                    </a>
+  
+                   
+                    <a
+                      href="https://www.quora.com/profile/Umair-Arshad-75"
+                      role="button"
+                      class="btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Quora"
+                    >
+                      <i class="fab fa-quora"></i>
+                    </a>
+                    <a
+                      href="mailto:umair6622@gmail.com"
+                      role="button"
+                      class="btn"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="umair6622@gmail.com"
+                    >
+                      <i class="fas fa-envelope-square"></i>
+                    </a>
+                   
+                  </section>
+                </div>
+              </div>
+            </article>  
+          </main>
+          </main> 
+          
         </div>
-        <!-- <footer class="container">
-            <hr class="red-line" />
-            <div class="footer">
-                <p class="p-footer">
-                    Last update: August 25, 2020<br />
-                    Lahore, Pakistan
-                </p>
-                <img src="assets/img/favicon.png" alt="surgeon dev" style="width: 2.5em; height: 2.5em;" />
-            </div>
-        </footer> -->
-
+      </div>
+      <footer class="container">
+        <hr class="red-line" />
+        <div class="footer">
+          <p class="p-footer">
+            Last update: August 25, 2020<br />Lahore, Pakistan
+          </p>
+          <img
+            src="assets/img/favicon.png"
+            alt="surgeon dev"
+            style="width: 2.5em; height: 2.5em;"
+          />
+        </div>
+      </footer>
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
 

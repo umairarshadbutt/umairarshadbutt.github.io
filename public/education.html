@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="keywords" content="umair, umair arshad, umair arshad butt, HTML, CSS, JavaScript">
+    <meta
+      name="keywords"
+      content="umair, umair arshad, umair arshad butt, HTML, CSS, JavaScript"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="Resume - Umair Arshad" />
-    <meta
-      property="og:description"
-      content='Education of Umair Arshad'
-    />
+    <meta property="og:description" content="Education of Umair Arshad" />
     <meta property="og:image" content="assets/img/UmairArshad.jpg" />
     <meta property="og:url" content="https://umairarshad.me/" />
     <link rel="canonical" href="https://umairarshad.me/" />
@@ -36,14 +36,23 @@
   </head>
 
   <body>
+    <header class="site-header">
+      <nav class="navbar-dark bg-dark">
+        <div class="container justify-content-between">
+          <div class="topnav" id="myTopnav">
+            <a href="/">Home</a>
+            <a href="./skills.html">Skills</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./education.html" class="active">Education</a>
+            <a href="javascript:void(0);" class="icon" onclick="navbar()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
     <div>
       <div class="home">
-        
-        <a class="home_" href="/">
-          <i class="far fa-user-circle"></i>
-          <span class="sr-only">(current)</span>
-      </a>
-       
         <a name="education"></a>
         <main class="site-education">
           <article class="container">
@@ -60,9 +69,7 @@
                     <header class="edu-degree">
                       Remote Full Stack Web Development Program, Full Time
                     </header>
-                    <main class="fac-name">
-                      Microverse<br />
-                    </main>
+                    <main class="fac-name">Microverse<br /></main>
                     <footer>From Jun 2020 to Continue</footer>
                   </section>
                   <section
@@ -72,21 +79,16 @@
                       <li>
                         Software Engineering school with a < 4% acceptance rate.
                       </li>
-                      <li>
-                         Remote pair programming
-                      </li>
+                      <li>Remote pair programming</li>
                       <li>
                         Algorithms, data structures, software design patterns
                       </li>
-                      <li>
-                        Front-end and Back-end development
-                      </li>
-                      <li>
-                        Open source projects and contributions
-                      </li>
+                      <li>Front-end and Back-end development</li>
+                      <li>Open source projects and contributions</li>
                       <li>
                         <a
-                          href="https://www.microverse.org/#world-class-curriculum"target="_blank"
+                          href="https://www.microverse.org/#world-class-curriculum"
+                          target="_blank"
                           >Program matrix</a
                         >.
                       </li>
@@ -101,7 +103,8 @@
                       Bachelor of Science in Computer Science
                     </header>
                     <main class="fac-name">
-                      FAST National University of Computer and Emerging Sciences<br />
+                      FAST National University of Computer and Emerging
+                      Sciences<br />
                     </main>
                     <footer>Dec 2018</footer>
                   </section>
@@ -110,13 +113,14 @@
                   >
                     <ul>
                       <li>
-                        Bachelor Degree from FAST NUCES focuses on
-                        writing code in multiple languages including Java, C#,
-                        C++, etc. Elective options include QA and Requirements Engineering.
+                        Bachelor Degree from FAST NUCES focuses on writing code
+                        in multiple languages including Java, C#, C++, etc.
+                        Elective options include QA and Requirements
+                        Engineering.
                       </li>
                       <li>
-                        Successful completion of the program provides skills
-                        in IT systems analysis, requirements discovery, critical
+                        Successful completion of the program provides skills in
+                        IT systems analysis, requirements discovery, critical
                         thinking, process mapping, documentation, technical
                         communication, presentations, and team work.
                       </li>
@@ -128,7 +132,8 @@
                       </li>
                       <li>
                         <a
-                          href="https://www.nu.edu.pk/Program/BS(CS)"target="_blank"
+                          href="https://www.nu.edu.pk/Program/BS(CS)"
+                          target="_blank"
                           >Program matrix</a
                         >.
                       </li>
@@ -151,35 +156,34 @@
         <img
           src="assets/img/favicon.png"
           alt="surgeon dev"
-          style="width: 2.5em; height: 2.5em;"
+          style="width: 2.5em; height: 2.5em"
         />
       </div>
     </footer>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyC2Iqv5U7W4_f5uVcH8Ty1kwiQ1tocJZAI",
-    authDomain: "umairme-b030c.firebaseapp.com",
-    databaseURL: "https://umairme-b030c.firebaseio.com",
-    projectId: "umairme-b030c",
-    storageBucket: "umairme-b030c.appspot.com",
-    messagingSenderId: "1071362620594",
-    appId: "1:1071362620594:web:abbe865b80dd492f49ddab",
-    measurementId: "G-4SWZ40NV57"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
-
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyC2Iqv5U7W4_f5uVcH8Ty1kwiQ1tocJZAI",
+        authDomain: "umairme-b030c.firebaseapp.com",
+        databaseURL: "https://umairme-b030c.firebaseio.com",
+        projectId: "umairme-b030c",
+        storageBucket: "umairme-b030c.appspot.com",
+        messagingSenderId: "1071362620594",
+        appId: "1:1071362620594:web:abbe865b80dd492f49ddab",
+        measurementId: "G-4SWZ40NV57",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -190,13 +194,13 @@
     <script src="js/libs/showNavDescription.js"></script>
     <script src="js/main.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.15.2/firebase-app.js"></script>
+    <script src="/__/firebase/7.15.2/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.15.2/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.15.2/firebase-analytics.js"></script>
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
   </body>
 </html>

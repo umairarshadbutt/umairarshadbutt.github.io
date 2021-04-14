@@ -640,3 +640,10 @@ div.footer {
   left: 34px;
   top: 34%;
 }
+
+.navbar_fixed {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

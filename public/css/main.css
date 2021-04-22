@@ -85,7 +85,7 @@ body {
 }
 
 div.home {
-  margin: 55px auto 60px;
+  margin: 52px auto 0;
 }
 
 hr.red-line {
@@ -382,7 +382,7 @@ nav.navbar ul.navbar-nav {
 }
 
 main.site-about {
-  padding-top: 2em;
+  padding-top: 7em;
 }
 
 main.site-about article.container div.row {

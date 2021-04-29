@@ -85,7 +85,7 @@ body {
 }
 
 div.home {
-  margin: 55px auto 60px;
+  margin: 52px auto 0;
 }
 
 hr.red-line {
@@ -103,7 +103,7 @@ hr.section-divider {
   border: 0;
   clear: both;
   height: 0.7em;
-  background: #ba5624;
+  background: #dee8d3;
   display: block;
   border-radius: 0.25em;
 }
@@ -382,7 +382,7 @@ nav.navbar ul.navbar-nav {
 }
 
 main.site-about {
-  padding-top: 2em;
+  padding-top: 4em;
 }
 
 main.site-about article.container div.row {
@@ -401,7 +401,9 @@ main.site-about article.container div.row img {
 main.site-about article.container div.row div.profile {
   margin-top: 15px;
 }
-
+.profile p {
+  font-size: 1.2em;
+}
 main.site-about article.container div.row section.bio h1,
 main.site-about article.container div.row section.bio h2 {
   margin: 0;
@@ -642,6 +644,7 @@ div.footer {
 }
 
 .navbar_fixed {
+  z-index: 1;
   overflow: hidden;
   position: fixed;
   top: 0;

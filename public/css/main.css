@@ -620,7 +620,8 @@ div.footer {
     display: block;
   }
   .socialmedia {
-    display: none;
+    left: 89% !important;
+    top: 57%!important;
   }
 }
 

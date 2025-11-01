@@ -22,7 +22,7 @@
 
 ## Live Demo
 
-To see a preview of the actual project, check out the [Live Demo Link](https://umairarshad.me/)
+To see a preview of the actual project, check out the [Live Demo Link](https://umairarshadbutt.github.io/)
 
 
 

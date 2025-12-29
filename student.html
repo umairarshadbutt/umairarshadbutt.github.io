@@ -227,16 +227,16 @@
         
         .popup-container {
             background-color: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            width: 550px;
+            width: 500px; /* Reduced from 550px */
             max-width: 90%;
         }
         
         .popup-title {
             text-align: center;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             margin-bottom: 20px;
             color: #2c3e50;
@@ -251,7 +251,17 @@
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-column {
+            flex: 1;
         }
         
         .form-group label {
@@ -259,14 +269,15 @@
             margin-bottom: 8px;
             font-weight: bold;
             color: #34495e;
+            font-size: 14px;
         }
         
         .form-group input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
         }
         
         .form-group input:focus {
@@ -276,7 +287,7 @@
         }
         
         .example-text {
-            font-size: 12px;
+            font-size: 11px;
             color: #7f8c8d;
             margin-top: 5px;
             font-style: italic;
@@ -284,16 +295,16 @@
         
         .submit-btn {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background-color: #27ae60;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         
         .submit-btn:hover {
@@ -307,67 +318,70 @@
         .gemini-info {
             background-color: #f8f9fa;
             border-left: 4px solid #4285f4;
-            padding: 15px;
-            margin-top: 25px;
+            padding: 12px;
+            margin-top: 20px;
             border-radius: 5px;
         }
         
         .gemini-info h4 {
             color: #4285f4;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            font-size: 16px;
         }
         
         .gemini-info p {
             color: #5f6368;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 8px;
         }
         
         .gemini-info ul {
             color: #5f6368;
-            font-size: 14px;
-            line-height: 1.5;
-            padding-left: 20px;
-            margin-bottom: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+            padding-left: 18px;
+            margin-bottom: 8px;
         }
         
         .note-box {
             background-color: #fff3cd;
             border: 1px solid #ffeaa7;
-            padding: 12px;
+            padding: 10px;
             border-radius: 5px;
             margin-top: 15px;
-            font-size: 13px;
+            font-size: 12px;
             color: #856404;
+            margin-bottom: 20px;
         }
         
         .info-icon {
             display: inline-block;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             background-color: #4285f4;
             color: white;
             border-radius: 50%;
             text-align: center;
-            line-height: 20px;
+            line-height: 18px;
             font-weight: bold;
+            font-size: 12px;
         }
         
         .image-links {
             background-color: #e8f4f8;
             border: 1px solid #b3e0f2;
-            padding: 10px;
+            padding: 8px;
             border-radius: 5px;
             margin-top: 15px;
-            font-size: 12px;
+            font-size: 11px;
         }
         
         .image-links p {
-            margin: 5px 0;
+            margin: 4px 0;
             color: #2c3e50;
         }
         
@@ -387,39 +401,50 @@
             </div>
             
             <form id="studentForm">
-                <div class="form-group">
-                    <label for="popupName">Student Name</label>
-                    <input type="text" id="popupName" placeholder="Enter student name" required>
-                    <div class="example-text">Example: Umair Arshad</div>
+                <!-- First Row: Student Name and Student ID -->
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="popupName">Student Name</label>
+                            <input type="text" id="popupName" placeholder="Example: Umair Arshad" required>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="popupId">Student ID</label>
+                            <input type="text" id="popupId" placeholder="Example: 34102-134213-9" required>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="popupId">Student ID</label>
-                    <input type="text" id="popupId" placeholder="Enter student ID" required>
-                    <div class="example-text">Example: 34102-134213-9</div>
+                <!-- Second Row: CNIC Number and Registration Number -->
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="popupCnic">CNIC Number</label>
+                            <input type="text" id="popupCnic" placeholder="Example: 34102-1342139-5" required>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="popupRegNum">Registration Number</label>
+                            <input type="text" id="popupRegNum" placeholder="Example: 2021-z-34645" required>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="popupCnic">CNIC Number</label>
-                    <input type="text" id="popupCnic" placeholder="Enter CNIC number" required>
-                    <div class="example-text">Format: XXXXX-XXXXXXX-X (Example: 34102-1342139-5)</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="popupRegNum">Registration Number</label>
-                    <input type="text" id="popupRegNum" placeholder="Enter registration number" required>
-                    <div class="example-text">Example: 2021-z-34645</div>
-                </div>
-                
                 
                 <button type="submit" class="submit-btn">Generate Registration Card</button>
             </form>
             
             <div class="gemini-info">
-                <h4><span class="info-icon">G</span> Gemini Integration</h4>
-                <p>Connected to <strong>gemini.google.com/students/</strong></p>
-                <p>AI support for learning & coding</p>
-            </div>
+    <h4><span class="info-icon">G</span> Gemini Integration</h4>
+    <p>Connected to <strong><a href="https://gemini.google/students/" target="_blank" style="color: #4285f4; text-decoration: none;">gemini.google.com/students/</a></strong></p>
+    <p>AI support for learning & coding</p>
+    <p style="margin-top: 8px; font-size: 13px;">
+        <strong>Google AI Pro Plan includes:</strong><br>
+        • Gemini app with advanced features, AI assistance in Google Apps, Enhanced NotebookLM tools, 2TB Cloud Storage
+    </p>
+</div>
         </div>
     </div>
     

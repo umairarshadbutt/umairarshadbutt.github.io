@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of the Punjab Registration Card Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .registration-card {
+            width: 700px;
+            border: 2px solid #000;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        
+        .logo-img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .university-name {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .text-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+        
+        .photo-section {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .photo-placeholder {
+            width: 120px;
+            height: 150px;
+            border: 1px solid #000;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-text {
+            font-size: 12px;
+            text-align: center;
+            color: #666;
+        }
+        
+        .certification-text {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .student-name {
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+        
+        .student-id {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .father-info {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .registration-number-container {
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        
+        .underline {
+            text-decoration: underline;
+        }
+        
+        .location-date {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .note {
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        
+        .college-info {
+            text-align: center;
+            margin: 20px 0;
+            padding: 8px;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .registrar {
+            text-align: right;
+            font-weight: bold;
+        }
+        
+        .signature-placeholder {
+            width: 200px;
+            height: 60px;
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        
+        .signature-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .file-label {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .file-label:hover {
+            background-color: #2980b9;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+        
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .popup-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            width: 550px;
+            max-width: 90%;
+        }
+        
+        .popup-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .popup-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        .example-text {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #219653;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .gemini-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4285f4;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 5px;
+        }
+        
+        .gemini-info h4 {
+            color: #4285f4;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .gemini-info p {
+            color: #5f6368;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .gemini-info ul {
+            color: #5f6368;
+            font-size: 14px;
+            line-height: 1.5;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .note-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #856404;
+        }
+        
+        .info-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #4285f4;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+        }
+        
+        .image-links {
+            background-color: #e8f4f8;
+            border: 1px solid #b3e0f2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        
+        .image-links p {
+            margin: 5px 0;
+            color: #2c3e50;
+        }
+        
+        .image-links strong {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- Popup for entering details -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-container">
+            <div class="popup-title">Student Registration Card Generator</div>
+      
+            <div class="note-box">
+                <strong>Note:</strong> This is a static HTML page. Data is not saved to any server.
+            </div>
+            
+            <form id="studentForm">
+                <div class="form-group">
+                    <label for="popupName">Student Name</label>
+                    <input type="text" id="popupName" placeholder="Enter student name" required>
+                    <div class="example-text">Example: Umair Arshad</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="popupId">Student ID</label>
+                    <input type="text" id="popupId" placeholder="Enter student ID" required>
+                    <div class="example-text">Example: 34102-134213-9</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="popupCnic">CNIC Number</label>
+                    <input type="text" id="popupCnic" placeholder="Enter CNIC number" required>
+                    <div class="example-text">Format: XXXXX-XXXXXXX-X (Example: 34102-1342139-5)</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="popupRegNum">Registration Number</label>
+                    <input type="text" id="popupRegNum" placeholder="Enter registration number" required>
+                    <div class="example-text">Example: 2021-z-34645</div>
+                </div>
+                
+                
+                <button type="submit" class="submit-btn">Generate Registration Card</button>
+            </form>
+            
+            <div class="gemini-info">
+                <h4><span class="info-icon">G</span> Gemini Integration</h4>
+                <p>Connected to <strong>gemini.google.com/students/</strong></p>
+                <p>AI support for learning & coding</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Registration Card (Initially hidden) -->
+    <div class="registration-card hidden" id="registrationCard">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo.png" alt="University of Punjab Logo" class="logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=logo-text>University<br>Logo</div>';">
+            </div>
+            <div class="university-name">University of Punjab</div>
+            <div class="card-title">Registration Card</div>
+            <div class="card-title">Web Development Part-I</div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-content">
+                <div class="certification-text">
+                    This is to certify that
+                </div>
+                
+                <!-- Student Name Section -->
+                <div class="student-name" id="studentNameDisplay">
+                    <span id="nameText">Umair Arshad</span>
+                </div>
+                
+                <!-- Student ID Section -->
+                <div class="student-id" id="studentIdDisplay">
+                    <span id="idText">34102-134213-9</span>
+                </div>
+                
+                <!-- CNIC Section -->
+                <div class="father-info" id="cnicDisplay">
+                    CNIC: <span id="cnicText">34102-1342139-5</span>
+                </div>
+                
+                <div class="certification-text">
+                    has been registered as a student of the University of Punjab.
+                </div>
+                
+                <!-- Registration Number Section -->
+                <div class="registration-number-container" id="regNumDisplay">
+                    His registration number is : <span class="underline" id="regNumText">2021-z-34645</span>
+                </div>
+                
+                <div class="location-date">
+                    Senate Hall, Lahore<br>
+                    The 01st Nov 2025
+                </div>
+            </div>
+            
+            <div class="photo-section">
+                <div class="photo-placeholder" id="photoContainer">
+                    <span class="photo-text" id="photoText">Passport Size Photo</span>
+                    <img id="photoPreview" class="preview-image" alt="Student Photo">
+                </div>
+                <label for="photoUpload" class="file-label" id="uploadPhotoBtn">Upload Photo</label>
+                <input type="file" id="photoUpload" accept="image/*">
+            </div>
+        </div>
+        
+        <div class="note">
+            Candidate should keep this card carefully. A fee of Rs. 100 is charged for duplicate Registration Card.
+        </div>
+        
+        <div class="college-info">
+            University of Punjab, Canal Road, Lahore
+        </div>
+        
+        <div class="signature-section">
+            <div>
+                <div></div>
+                <div class="signature-placeholder"></div>
+            </div>
+            
+            <div class="registrar">
+                <div>Registrar</div>
+                <div>University of Punjab, Lahore</div>
+                <div class="signature-placeholder">
+                    <img src="signature.png" alt="Registrar Signature" class="signature-image" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=signature-text>Signature</div>';">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Wait for page to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Always show the popup on page load since this is a static page
+            document.getElementById('popupOverlay').classList.remove('hidden');
+        });
+        
+        // Handle form submission
+        document.getElementById('studentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get values from form
+            const name = document.getElementById('popupName').value.trim();
+            const id = document.getElementById('popupId').value.trim();
+            const cnic = document.getElementById('popupCnic').value.trim();
+            const regNum = document.getElementById('popupRegNum').value.trim();
+            
+            // Validate inputs
+            if (name && id && cnic && regNum) {
+                // Update card with entered values
+                document.getElementById('nameText').textContent = name;
+                document.getElementById('idText').textContent = id;
+                document.getElementById('cnicText').textContent = cnic;
+                document.getElementById('regNumText').textContent = regNum;
+                
+                // Hide popup and show card
+                document.getElementById('popupOverlay').classList.add('hidden');
+                document.getElementById('registrationCard').classList.remove('hidden');
+            }
+        });
+        
+        // Handle photo upload
+        document.getElementById('photoUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = document.getElementById('photoPreview');
+                    img.src = event.target.result;
+                    img.style.display = 'block';
+                    document.getElementById('photoText').style.display = 'none';
+                    
+                    // Hide upload button after successful upload
+                    document.getElementById('uploadPhotoBtn').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Function to reset form and show popup again
+        function showPopupAgain() {
+            document.getElementById('registrationCard').classList.add('hidden');
+            document.getElementById('popupOverlay').classList.remove('hidden');
+            document.getElementById('studentForm').reset();
+        }
+        
+        // Add keyboard shortcut to show popup again (Ctrl+R)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                showPopupAgain();
+            }
+        });
+    </script>
+</body>
+</html>

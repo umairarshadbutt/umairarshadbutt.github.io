@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV Review Report — CareerCraft PK</title>
+<title>LinkedIn Profile Review Report</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
@@ -268,8 +268,8 @@ body{
 <div class="sheet" id="sheet">
 
   <!-- HEADER -->
-  <div class="report-title">CV REVIEW REPORT</div>
-  <div class="report-sub">Professional CV &amp; LinkedIn Assessment</div>
+  <div class="report-title">LINKEDIN PROFILE REVIEW</div>
+  <div class="report-sub">Professional LinkedIn Profile Assessment</div>
   <div class="report-meta">Prepared by <b>Umair Arshad</b> | <a href="https://wa.me/923006622188" target="_blank">+92 300 6622188</a> | <a href="mailto:umair6622@gmail.com">umair6622@gmail.com</a></div>
   <div class="header-divider"></div>
 
@@ -314,9 +314,9 @@ body{
   </table>
 
   <!-- OVERALL SCORE -->
-  <div class="section-header">Overall CV Score</div>
+  <div class="section-header">Overall LinkedIn Profile Score</div>
   <div class="score-box">
-    <div class="score-label">Rate the CV from 1 (Needs major work) to 10 (Excellent)</div>
+    <div class="score-label">Rate the profile from 1 (Needs major work) to 10 (Excellent)</div>
     <div class="score-scale" id="scoreScale"></div>
   </div>
 
@@ -331,10 +331,6 @@ body{
 
   <div class="section-header">Issues Found &amp; Improvements Needed</div>
   <div class="feedback-list check-grid" id="issuesList"></div>
-
-  <!-- ATS -->
-  <div class="section-header">ATS (Applicant Tracking System) Compatibility</div>
-  <table class="ats-table" id="atsTable"></table>
 
   <!-- ACTION PLAN -->
   <div class="section-header">Recommended Action Plan</div>
@@ -356,7 +352,7 @@ body{
 
   <!-- SERVICES -->
   <div class="services-title">READY TO FIX THESE ISSUES?</div>
-  <div class="services-sub">Let professionally rewrite your CV &amp; LinkedIn profile</div>
+  <div class="services-sub">Let's professionally optimize your LinkedIn &amp; CV to get noticed by recruiters</div>
 
   <table class="services-table">
     <tr>
@@ -365,8 +361,8 @@ body{
       <th style="width:18%;">Price (PKR)</th>
     </tr>
     <tr>
-      <td><span class="pkg-name">CV Review</span></td>
-      <td>Detailed review, CV score, issues found, action plan, ATS check</td>
+      <td><span class="pkg-name">LinkedIn Review</span></td>
+      <td>Detailed review, profile score, issues found, action plan</td>
       <td class="price"><span class="old-price">500</span><span class="new-price">400</span><small>(FREE for first review)</small></td>
     </tr>
     <tr>
@@ -401,40 +397,80 @@ for(let i=1;i<=10;i++){
 // ===== Rubric Data =====
 const rubricData = [
   {
-    cat: "1. Header & Contact Information",
+    cat: "1. Profile Basics",
     items: [
-      "Profile links included & working (LinkedIn / Portfolio / GitHub)",
-      "Header size is appropriate (not too large)"
+      "Username/URL edited (no random letters/numbers)",
+      "Professional, high-quality profile photo used",
+      "Prospective role added to headline",
+      "Intro block includes education",
+      "Cover image is attractive & high-quality (optional)",
+      "Contact info links to GitHub / Portfolio / other relevant links",
+      "Profile marked as 'Looking for job opportunities'"
     ]
   },
   {
-    cat: "2. Content Quality",
+    cat: "2. About Section",
     items: [
-      "Lists only relevant, confidence-level skills",
-      "Work experience adds value to candidacy",
-      "Bullet points emphasize accomplishments, not just duties",
-      "Content is focused, relevant & well-prioritized"
+      "About section has 1-2 paragraphs (background, stack, education)",
+      "Includes at least one accomplishment or 'hook'",
+      "Contains a clear call to action (connect, email, contact invite)",
+      "Featured section includes 3+ pieces of relevant media",
+      "Featured projects/media have link previews"
     ]
   },
   {
-    cat: "3. Writing & Grammar",
+    cat: "3. Experience",
     items: [
-      "Consistent tense, punctuation & sentence format",
-      "Sentences are clear and easy to read"
+      "Relevant development/work experience listed (or Freelance/Self-Employed if none)",
+      "Each experience highlights accomplishments, not just duties",
+      "All dates and locations accurately filled out"
     ]
   },
   {
-    cat: "4. Design & Formatting",
+    cat: "4. Education",
     items: [
-      "Design is clean, doesn't distract from content",
-      "Consistent fonts, indentation, bold/italics usage",
-      "Sections clearly separated; appropriate length (0.8-1.25 pages)"
+      "Relevant degrees/certificate programs listed",
+      "Dates of attendance included",
+      "Description for every program (languages, frameworks, coursework etc.)",
+      "Mentorship experience listed in Activities & Societies (if applicable)"
     ]
   },
   {
-    cat: "5. Accuracy",
+    cat: "5. Volunteer / Mentorship",
     items: [
-      "No spelling or grammatical errors"
+      "Mentorship experience described in Volunteer section (if applicable)"
+    ]
+  },
+  {
+    cat: "6. Skills",
+    items: [
+      "Has at least one skill endorsement (optional)",
+      "Skills include all relevant technical skills for the role",
+      "Skills include relevant soft skills (communication, mentoring etc.)"
+    ]
+  },
+  {
+    cat: "7. Recommendations",
+    items: [
+      "Received at least one recommendation from a teammate/colleague",
+      "Given at least one recommendation to a teammate/colleague"
+    ]
+  },
+  {
+    cat: "8. Publications & Projects",
+    items: [
+      "Profile links to 3+ publications (Medium, Hackernoon, etc.)",
+      "Each publication has a short description",
+      "Profile links to at least 1 project",
+      "Each project has a strong, informative description"
+    ]
+  },
+  {
+    cat: "9. Overall Quality",
+    items: [
+      "No spelling or grammar issues",
+      "Profile is complete — no skipped sections",
+      "Has at least one development-related post/comment in Activity"
     ]
   }
 ];
@@ -464,111 +500,129 @@ rubricData.forEach(function(group, gi){
 
 // ===== Feedback checklists (click to select) =====
 const goodItems = [
-  "Clear, well-organized contact information",
-  "LinkedIn / portfolio / GitHub links included and working",
-  "Header size is appropriate, doesn't take up too much space",
-  "Professional summary clearly states career goal",
-  "Strong, relevant skills section (no vague 'stretch' skills)",
-  "Work experience is relevant and adds value to candidacy",
-  "Contains an appropriate number of work experiences (1-4)",
-  "Bullet points highlight measurable achievements, not duties",
-  "Content is tightly focused on the target role / field",
-  "Content is correctly prioritized (most relevant first)",
-  "Consistent and correct verb tense throughout",
-  "Consistent punctuation across all bullet points",
-  "Sentences follow the same grammatical format",
-  "Sentences are clear, concise and easy to read",
-  "Clean, professional design that highlights content",
-  "Consistent indentation throughout",
-  "Uses 1-3 professional, easy-to-read fonts",
-  "Consistent use of bold and italics",
-  "Sections are clearly separated and easy to scan",
-  "Appropriate resume length (0.8 - 1.25 pages)",
-  "No spelling errors",
-  "No grammatical errors",
-  "Good use of industry-relevant keywords (ATS-friendly)",
-  "Education section properly formatted",
-  "Strong, attention-grabbing professional title/headline",
-  "Quantified results (numbers, %, metrics) used effectively",
-  "Extra-curricular content is relevant to the target field",
-  "Resume file is in a suitable, ATS-readable format",
-  "Includes a portfolio link in the header (or placeholder reminder if not yet created)",
-  "Header links are proper hyperlinks, not pasted raw URLs",
-  "Email is a clickable mailto: link",
-  "Each highlighted project includes a live demo and/or repo link",
-  "Professional summary is 3-5 lines and focuses on highlights/skills (not 'looking for a job')",
-  "Each Work Experience entry has 3-5 bullet points",
-  "Sections sorted in reverse chronological order (most recent first)",
-  "Resume fits on 1 page (appropriate for current experience level)",
-  "Dates/months formatted consistently and correctly"
+  "Custom URL/username (no random letters or numbers)",
+  "Professional, high-quality profile photo",
+  "Headline includes prospective role/title",
+  "Intro block includes education (Microverse, university, etc.)",
+  "Attractive, high-quality cover/banner image",
+  "Contact info links to GitHub and/or portfolio",
+  "Profile marked as 'Open to work' / looking for opportunities",
+  "About section has 1-2 solid paragraphs (background, stack, education)",
+  "About section includes a strong accomplishment or hook",
+  "About section ends with a clear call to action",
+  "Featured section includes 3+ relevant projects/media",
+  "Featured links have working previews",
+  "Relevant work/development experience clearly listed",
+  "Each experience highlights accomplishments, not just duties",
+  "All dates and locations are accurate and complete",
+  "Education section lists all relevant degrees/programs",
+  "Education includes dates of attendance",
+  "Education includes detailed descriptions (skills, coursework, frameworks)",
+  "Mentorship experience listed in Activities & Societies",
+  "Mentorship described in Volunteer section",
+  "Has skill endorsements from connections",
+  "Skills section includes all relevant technical skills",
+  "Skills section includes relevant soft skills",
+  "Has received recommendation(s) from teammates/colleagues",
+  "Has given recommendation(s) to teammates/colleagues",
+  "Links to 3+ published articles (Medium, Hackernoon, etc.)",
+  "Each publication has a short description",
+  "Links to at least 1 project with strong description",
+  "No spelling or grammar issues",
+  "Profile is fully complete — no skipped sections",
+  "Has development-related activity (posts/comments)",
+  "Experience section accurately represents roles (no misleading bootcamp/program entries)",
+  "Each job entry has 3+ accomplishment-focused bullet points",
+  "Mentorship bullet points are specific and detailed",
+  "Consistent capitalization & punctuation across titles and descriptions",
+  "Has actively requested endorsements from teammates/connections",
+  "Has actively requested recommendations from teammates/connections"
 ];
 
 const issueItems = [
-  "Missing or incomplete contact information",
-  "Missing or broken LinkedIn / portfolio / GitHub links",
-  "Header takes up too much page space",
-  "No professional summary at the top",
-  "Skills section lists unrelated, generic, or 'stretch' skills",
-  "Work experience doesn't add value to candidacy",
-  "Too many (5+) or too few (0) work experiences listed",
-  "Bullet points describe duties, not achievements",
-  "Content includes irrelevant information not related to the target role",
-  "Content is poorly prioritized (important sections under-emphasized)",
-  "Inconsistent verb tense across bullet points",
-  "Inconsistent punctuation (mixing periods / no periods)",
-  "Sentences follow inconsistent grammatical format (active/passive mix)",
-  "Sentences are disjointed, overly complex, or hard to read",
-  "Design is too flashy or too plain, distracting from content",
-  "Inconsistent indentation throughout",
-  "Uses unprofessional or too many (4+) different fonts",
-  "Inconsistent use of bold and italics",
-  "Sections not clearly separated",
-  "Resume is too short (under 0.5 page) or too long (2+ pages)",
-  "Spelling errors found",
-  "Grammatical errors found",
-  "Missing industry-relevant keywords (ATS may reject)",
-  "Education section formatting needs improvement",
-  "Weak or missing professional title/headline",
-  "Bullet points lack quantified results (no numbers/metrics)",
-  "Includes 'References available upon request' (unnecessary)",
-  "Photo included where not appropriate (e.g. Gulf/Western CVs)",
-  "Outdated or irrelevant older experience taking up space",
-  "File format not ATS-friendly (e.g. scanned image, complex tables)",
-  "Header missing portfolio link",
-  "Header links pasted as raw URLs (not hyperlinked) — wastes space and looks unpolished",
-  "Email address not set up as a clickable mailto: link",
-  "Highlighted projects missing live demo and/or repo links",
-  "Professional summary is too short/long (not 3-5 lines) or just says 'seeking opportunities'",
-  "Work Experience entries have fewer than 3 bullet points",
-  "Sections not sorted in reverse chronological order (oldest listed first)",
-  "Resume is longer than 1 page for current experience level",
-  "Experience entry misrepresents role (e.g. listing a program/bootcamp as if it were an employer)",
-  "Dates/months formatted inconsistently or incorrectly"
+  "Default LinkedIn URL not customized (random letters/numbers)",
+  "Profile photo missing, unprofessional, or low quality",
+  "Headline doesn't reflect prospective role/title",
+  "Intro block missing education details",
+  "Default LinkedIn cover image not replaced",
+  "Contact info missing GitHub/portfolio links",
+  "Profile not marked as 'Open to work'",
+  "About section is empty or too short (1-3 sentences only)",
+  "About section lacks an accomplishment/hook",
+  "About section has no call to action",
+  "Featured section missing or has fewer than 3 items",
+  "Featured projects/media missing link previews",
+  "No relevant work experience listed (or no Freelance/Self-Employed section)",
+  "Experience descriptions list duties only, not accomplishments",
+  "Experience entries missing or mostly listing daily tasks",
+  "Dates and/or locations missing or inaccurate",
+  "Education section missing relevant degrees/programs",
+  "Education missing dates of attendance",
+  "Education descriptions missing or too general",
+  "Mentorship experience not listed despite having it",
+  "Volunteer/mentorship section missing or too vague",
+  "No skill endorsements",
+  "Skills section missing key technical skills for the role",
+  "Skills section missing relevant soft skills (or has 3 or fewer)",
+  "No recommendations received from teammates",
+  "No recommendations given to teammates",
+  "No links to published articles/blog posts",
+  "Publications missing short descriptions",
+  "No project links included on profile",
+  "Project descriptions missing, vague, or too general",
+  "Spelling or grammar issues found",
+  "Profile incomplete — sections skipped or left empty",
+  "No development-related activity (posts/comments) on profile",
+  "Experience section includes roles that misrepresent your actual position (e.g. listing a program/bootcamp as an employer when you weren't an employee)",
+  "Job entries have fewer than 3 accomplishment-focused bullet points",
+  "Mentorship bullet points are too general / lack detail",
+  "Capitalization or punctuation inconsistencies in titles & descriptions (e.g. 'Full-Stack' vs 'Full-stack')",
+  "Has not asked teammates/connections for skill endorsements",
+  "Has not asked teammates/connections for recommendations"
 ];
 
 // Recommended Action Plan checklist
 const actionItems = [
-  "Add proper hyperlinks in the header (not pasted raw URLs)",
-  "Add a portfolio link to the header (or set a reminder to add once created)",
-  "Set up email as a clickable mailto: link",
-  "Add live demo and/or repo links to every highlighted project",
-  "Rewrite professional summary to 3-5 lines focused on highlights/skills (remove 'seeking job' language)",
-  "Expand each Work Experience entry to 3-5 bullet points",
-  "Add at least 3 accomplishments/achievements per job entry",
-  "Reorganize all sections into reverse chronological order",
-  "Remove or correct misleading entries (e.g. program/bootcamp listed as employer)",
-  "Make every bullet point follow the same grammatical format (consistent verb-first or subject-first)",
-  "Rewrite bullet points to emphasize accomplishments, not duties",
-  "Fix verb tense — past tense for past roles, present tense only for current ongoing tasks",
-  "Standardize all indentations (bullets, dates, headings)",
-  "Standardize punctuation — either all sentences end in periods or none do",
-  "Standardize fonts, bolding, and italics usage throughout",
-  "Trim content to fit on 1 page (remove outdated/irrelevant info)",
-  "Fix date/month formatting throughout",
-  "Add missing education descriptions for every program",
-  "Switch to clear, easily readable fonts",
-  "Add relevant industry keywords for ATS compatibility",
-  "Proofread for spelling and grammar errors"
+  "Customize LinkedIn URL to remove random numbers/letters",
+  "Upload a professional, high-quality profile photo",
+  "Add target role/title to headline",
+  "Add education details to Intro block",
+  "Replace default cover image with a branded/professional banner",
+  "Add GitHub, portfolio, or website links to contact info",
+  "Turn on 'Open to Work' setting",
+  "Rewrite About section into 1-2 strong paragraphs (background, stack, education)",
+  "Add a compelling hook/accomplishment to About section",
+  "Add a clear call to action at the end of About section",
+  "Add 3+ projects/media to Featured section",
+  "Add link previews to Featured projects",
+  "Add or update relevant work/development experience",
+  "Rewrite experience bullets to highlight accomplishments & metrics",
+  "Fix/complete all dates and locations for experience entries",
+  "Add all relevant degrees/certifications to Education",
+  "Add dates of attendance to Education entries",
+  "Add detailed descriptions to each Education entry",
+  "Add mentorship experience to Activities & Societies",
+  "Add mentorship description to Volunteer section",
+  "Request skill endorsements from connections",
+  "Add all relevant technical skills to Skills section",
+  "Add relevant soft skills (communication, mentoring, leadership etc.)",
+  "Request recommendations from teammates/colleagues",
+  "Give recommendations to teammates/colleagues",
+  "Publish and link 3 articles (Medium, Hackernoon, Dev.to, etc.)",
+  "Add short descriptions to published articles",
+  "Add project links with strong descriptions",
+  "Proofread entire profile for spelling/grammar errors",
+  "Complete all remaining empty/skipped sections",
+  "Start posting/commenting on development-related content regularly",
+  "Engage with industry posts to build visibility (likes, comments, shares)",
+  "Join relevant LinkedIn groups in your target industry",
+  "Set profile visibility settings to public for recruiter discovery",
+  "Remove or correct misleading job entries (e.g. program/bootcamp listed as employer)",
+  "Add at least 3 accomplishment-focused bullet points to every job entry",
+  "Add more detail/specifics to mentorship experience bullet points",
+  "Fix capitalization & punctuation inconsistencies (e.g. 'Full-stack' style)",
+  "Ask teammates/connections to endorse your key skills",
+  "Ask teammates/connections to write you a recommendation"
 ];
 
 function buildCheckList(containerId, items){
@@ -587,25 +641,6 @@ function buildCheckList(containerId, items){
 buildCheckList('goodList', goodItems);
 buildCheckList('issuesList', issueItems);
 buildCheckList('actionList', actionItems);
-
-// ===== ATS Table =====
-const atsItems = [
-  "ATS-Friendly Format (no tables/columns/graphics issues)",
-  "Relevant industry keywords present",
-  "Standard section headings used",
-  "File format suitable (PDF/Word)"
-];
-const atsTable = document.getElementById('atsTable');
-atsItems.forEach(function(item, i){
-  const tr = document.createElement('tr');
-  tr.innerHTML =
-    '<td class="q">'+item+'</td>'+
-    '<td><div class="yn">'+
-    '<label><input type="radio" name="ats_'+i+'"> Yes</label>'+
-    '<label><input type="radio" name="ats_'+i+'"> No</label>'+
-    '</div></td>';
-  atsTable.appendChild(tr);
-});
 
 // ===== Chip toggle styling =====
 document.querySelectorAll('.chip input[type="radio"]').forEach(function(input){
@@ -632,7 +667,7 @@ function exportPDF(){
 
   const opt = {
     margin:       [10, 8, 10, 8],
-    filename:     'CV_Review_Report.pdf',
+    filename:     'LinkedIn_Profile_Review_Report.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
     html2canvas:  { scale: 2, useCORS: true },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Review Report — CareerCraft PK</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+:root{
+  --green:#1a5c2a;
+  --green-light:#e8f5e9;
+  --green-pale:#f3f9f4;
+  --dark:#1a1a1a;
+  --gray:#666;
+  --muted:#999;
+  --border:#dddddd;
+  --bg:#f4f1ea;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  background:var(--bg);
+  font-family:'DM Sans',sans-serif;
+  color:var(--dark);
+  padding:32px 16px 80px;
+}
+
+.toolbar{
+  max-width:850px;margin:0 auto 20px;
+  display:flex;justify-content:flex-end;gap:10px;
+}
+
+.btn{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;
+  padding:11px 22px;border-radius:6px;border:none;cursor:pointer;
+  letter-spacing:0.5px;transition:all 0.2s;
+}
+
+.btn-primary{background:var(--green);color:#fff;}
+.btn-primary:hover{background:#134420;}
+.btn-secondary{background:#fff;color:var(--green);border:1.5px solid var(--green);}
+.btn-secondary:hover{background:var(--green-pale);}
+
+.sheet{
+  max-width:850px;margin:0 auto;
+  background:#fff;
+  box-shadow:0 4px 30px rgba(0,0,0,0.08);
+  padding:42px 48px;
+}
+
+/* HEADER */
+.report-title{
+  font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;
+  text-align:center;letter-spacing:1px;color:var(--dark);
+}
+.report-sub{
+  text-align:center;color:var(--green);font-size:0.95rem;font-weight:600;
+  margin-top:2px;
+}
+.report-meta{
+  text-align:center;color:var(--gray);font-size:0.78rem;margin-top:6px;
+}
+.header-divider{
+  height:2.5px;background:var(--green);margin-top:14px;margin-bottom:18px;
+}
+
+.report-meta a{
+  color:var(--green);text-decoration:none;font-weight:600;
+}
+.report-meta a:hover{text-decoration:underline;}
+
+.cta-banner a{
+  color:#fff;text-decoration:none;
+}
+.cta-banner a:hover{text-decoration:underline;}
+
+/* SECTION HEADERS */
+.section-header{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;
+  letter-spacing:1.5px;color:var(--green);text-transform:uppercase;
+  border-bottom:1.5px solid var(--green);
+  padding-bottom:5px;margin-top:18px;margin-bottom:10px;
+}
+
+/* CLIENT INFO TABLE */
+.info-table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+.info-table td{padding:7px 0;border-bottom:1px solid #eee;vertical-align:middle;}
+.info-table td.label{font-weight:700;width:160px;}
+.info-table input[type="text"], .info-table input[type="date"]{
+  width:100%;border:none;border-bottom:1px dashed var(--border);
+  font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:4px 2px;
+  background:transparent;color:var(--dark);
+}
+.info-table input[type="text"]:focus, .info-table input[type="date"]:focus{outline:none;border-bottom-color:var(--green);}
+
+.chip-group{display:flex;gap:6px;flex-wrap:wrap;}
+.chip{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:0.78rem;color:var(--gray);cursor:pointer;
+  padding:4px 10px;border:1px solid var(--border);border-radius:20px;
+  transition:all 0.15s;user-select:none;
+}
+.chip input{display:none;}
+.chip.checked{background:var(--green-light);border-color:var(--green);color:var(--green);font-weight:600;}
+
+/* SCORE BOX */
+.score-box{
+  background:var(--green-pale);border:1.5px solid var(--green);
+  border-radius:6px;padding:14px 16px;text-align:center;
+}
+.score-box .score-label{font-size:0.85rem;color:var(--gray);margin-bottom:8px;}
+.score-scale{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.score-pill{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  cursor:pointer;
+}
+.score-pill .num{font-size:0.8rem;font-weight:700;color:var(--dark);}
+.score-pill input[type="radio"]{
+  width:18px;height:18px;accent-color:var(--green);cursor:pointer;
+}
+
+/* RUBRIC TABLES */
+.rubric-cat{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;
+  color:var(--dark);margin-top:12px;margin-bottom:4px;
+}
+.rubric-table{width:100%;border-collapse:collapse;font-size:0.82rem;margin-bottom:6px;}
+.rubric-table th{
+  background:var(--green-light);color:var(--green);font-weight:700;
+  font-size:0.75rem;padding:6px 8px;text-align:center;
+  border:1px solid var(--border);
+}
+.rubric-table th:first-child{text-align:left;}
+.rubric-table td{
+  padding:7px 8px;border:1px solid var(--border);
+}
+.rubric-table td.crit{font-size:0.8rem;}
+.rubric-table td.score-cell{text-align:center;width:42px;}
+.rubric-table input[type="radio"]{
+  width:16px;height:16px;accent-color:var(--green);cursor:pointer;
+}
+
+/* TEXTAREAS for feedback */
+.feedback-list{display:flex;flex-direction:column;gap:6px;}
+.feedback-row{display:flex;align-items:flex-start;gap:8px;}
+.feedback-row .num{
+  font-weight:700;color:var(--green);font-size:0.85rem;
+  width:18px;flex-shrink:0;padding-top:7px;
+}
+.feedback-row input[type="text"]{
+  flex:1;border:none;border-bottom:1px dashed var(--border);
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;padding:6px 2px;
+  background:transparent;color:var(--dark);
+}
+.feedback-row input[type="text"]:focus{outline:none;border-bottom-color:var(--green);}
+
+/* Checklist feedback items */
+.check-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px 14px;
+}
+.check-item{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:0.78rem;padding:4px 4px;border-radius:4px;
+  cursor:pointer;transition:background 0.15s;line-height:1.35;
+}
+.check-item:hover{background:var(--green-pale);}
+.check-item input[type="checkbox"]{
+  width:15px;height:15px;accent-color:var(--green);cursor:pointer;
+  margin-top:1px;flex-shrink:0;
+}
+.check-item span{flex:1;}
+
+/* ATS TABLE */
+.ats-table{width:100%;border-collapse:collapse;font-size:0.85rem;}
+.ats-table td{padding:8px;border:1px solid var(--border);}
+.ats-table td.q{width:65%;}
+.ats-table .yn{display:flex;gap:14px;justify-content:center;}
+.ats-table .yn label{display:flex;align-items:center;gap:4px;cursor:pointer;font-size:0.82rem;}
+.ats-table input[type="radio"]{width:15px;height:15px;accent-color:var(--green);cursor:pointer;}
+
+/* VERDICT */
+.verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.85rem;}
+.verdict-grid label{
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  padding:6px 4px;border-radius:4px;transition:background 0.15s;
+}
+.verdict-grid label:hover{background:var(--green-pale);}
+.verdict-grid input[type="radio"]{width:16px;height:16px;accent-color:var(--green);cursor:pointer;}
+
+/* Notes */
+.notes-row{display:flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:700;margin-top:10px;}
+.notes-row input{
+  flex:1;border:none;border-bottom:1px dashed var(--border);
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:400;
+  padding:6px 2px;background:transparent;color:var(--dark);
+}
+.notes-row input:focus{outline:none;border-bottom-color:var(--green);}
+
+/* SERVICES SECTION */
+.services-title{
+  text-align:center;font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.3rem;color:var(--green);margin-top:22px;
+}
+.services-sub{text-align:center;color:var(--gray);font-size:0.82rem;margin-bottom:12px;}
+
+.services-table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+.services-table th{
+  background:var(--green);color:#fff;font-family:'Syne',sans-serif;
+  font-weight:700;font-size:0.78rem;padding:8px;text-align:center;
+}
+.services-table td{padding:9px 10px;border:1px solid var(--border);vertical-align:middle;}
+.services-table tr:nth-child(even) td{background:var(--green-pale);}
+.services-table .pkg-name{font-weight:700;font-size:0.85rem;}
+.services-table .pkg-sub{font-size:0.7rem;color:var(--gray);display:block;}
+.services-table .price{text-align:center;font-weight:800;font-size:1rem;color:var(--green);}
+.services-table .price small{display:block;font-weight:400;font-size:0.62rem;color:var(--gray);}
+.services-table .price .old-price{
+  display:block;font-weight:500;font-size:0.78rem;color:var(--muted);
+  text-decoration:line-through;margin-bottom:1px;
+}
+.services-table .price .new-price{color:#c0392b;}
+
+.tags-line{
+  text-align:center;color:var(--gray);font-size:0.78rem;margin-top:10px;
+}
+
+/* CTA */
+.cta-banner{
+  background:var(--green);color:#fff;text-align:center;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;
+  padding:14px;border-radius:6px;margin-top:14px;letter-spacing:0.5px;
+}
+.cta-footer{
+  text-align:center;color:var(--gray);font-size:0.78rem;margin-top:10px;
+}
+
+/* Print styles */
+@media print{
+  body{background:#fff;padding:0;}
+  .toolbar{display:none;}
+  .sheet{box-shadow:none;padding:24px;max-width:100%;}
+  input[type="text"]{border-bottom:1px solid #ccc !important;}
+}
+
+/* PDF export mode: hide unchecked feedback items, show only checked ones cleanly */
+.pdf-mode .check-grid{grid-template-columns:1fr;}
+.pdf-mode .check-item{display:none;}
+.pdf-mode .check-item.is-checked{display:flex;background:none;padding:3px 0;}
+.pdf-mode .check-item.is-checked input[type="checkbox"]{display:none;}
+.pdf-mode .check-item.is-checked span::before{content:"• ";color:var(--green);font-weight:700;}
+.pdf-mode .feedback-empty-msg{display:none;}
+.pdf-mode input[type="text"]{border-bottom:none !important;}
+.pdf-mode input[type="text"]::placeholder{color:transparent;}
+.pdf-mode .report-meta a, .pdf-mode .cta-banner a{
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
+  <button class="btn btn-primary" onclick="exportPDF()">⬇ Export as PDF</button>
+</div>
+
+<div class="sheet" id="sheet">
+
+  <!-- HEADER -->
+  <div class="report-title">CV REVIEW REPORT</div>
+  <div class="report-sub">Professional CV &amp; LinkedIn Assessment</div>
+  <div class="report-meta">Prepared by <b>Umair Arshad</b> | <a href="https://wa.me/923006622188" target="_blank">+92 300 6622188</a> | <a href="mailto:umair6622@gmail.com">umair6622@gmail.com</a></div>
+  <div class="header-divider"></div>
+
+  <!-- CLIENT INFO -->
+  <div class="section-header">Client Information</div>
+  <table class="info-table">
+    <tr>
+      <td class="label">Client Name</td>
+      <td><input type="text" placeholder="Enter client's full name"></td>
+    </tr>
+    <tr>
+      <td class="label">Date</td>
+      <td><input type="date"></td>
+    </tr>
+    <tr>
+      <td class="label">Field / Industry</td>
+      <td><input type="text" placeholder="e.g. IT / Software, Marketing, Finance..."></td>
+    </tr>
+    <tr>
+      <td class="label">Experience Level</td>
+      <td>
+        <div class="chip-group" data-group="exp">
+          <label class="chip"><input type="radio" name="exp"> Fresh Graduate</label>
+          <label class="chip"><input type="radio" name="exp"> 1-2 Yrs</label>
+          <label class="chip"><input type="radio" name="exp"> 3-5 Yrs</label>
+          <label class="chip"><input type="radio" name="exp"> 5-10 Yrs</label>
+          <label class="chip"><input type="radio" name="exp"> 10+ Yrs</label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">Target Market</td>
+      <td>
+        <div class="chip-group" data-group="market">
+          <label class="chip"><input type="radio" name="market"> Local Pakistan</label>
+          <label class="chip"><input type="radio" name="market"> Gulf / Middle East</label>
+          <label class="chip"><input type="radio" name="market"> Canada / UK</label>
+          <label class="chip"><input type="radio" name="market"> Remote</label>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- OVERALL SCORE -->
+  <div class="section-header">Overall CV Score</div>
+  <div class="score-box">
+    <div class="score-label">Rate the CV from 1 (Needs major work) to 10 (Excellent)</div>
+    <div class="score-scale" id="scoreScale"></div>
+  </div>
+
+  <!-- DETAILED ASSESSMENT -->
+  <div class="section-header">Detailed Assessment <span style="font-weight:400;text-transform:none;letter-spacing:0;">(0 = Poor, 3 = Excellent)</span></div>
+
+  <div id="rubricContainer"></div>
+
+  <!-- FEEDBACK -->
+  <div class="section-header">What's Working Well</div>
+  <div class="feedback-list check-grid" id="goodList"></div>
+
+  <div class="section-header">Issues Found &amp; Improvements Needed</div>
+  <div class="feedback-list check-grid" id="issuesList"></div>
+
+  <!-- ATS -->
+  <div class="section-header">ATS (Applicant Tracking System) Compatibility</div>
+  <table class="ats-table" id="atsTable"></table>
+
+  <!-- ACTION PLAN -->
+  <div class="section-header">Recommended Action Plan</div>
+  <div class="feedback-list" id="actionList"></div>
+
+  <!-- FINAL VERDICT -->
+  <div class="section-header">Final Verdict</div>
+  <div class="verdict-grid">
+    <label><input type="radio" name="verdict"> Excellent — Minor tweaks only</label>
+    <label><input type="radio" name="verdict"> Good — Some improvements needed</label>
+    <label><input type="radio" name="verdict"> Needs Work — Multiple issues found</label>
+    <label><input type="radio" name="verdict"> Major Rewrite Recommended</label>
+  </div>
+
+  <div class="notes-row">
+    <span>Additional Notes:</span>
+    <input type="text" placeholder="Any extra comments...">
+  </div>
+
+  <!-- SERVICES -->
+  <div class="services-title">READY TO FIX THESE ISSUES?</div>
+  <div class="services-sub">Let CareerCraft PK professionally rewrite your CV &amp; LinkedIn profile</div>
+
+  <table class="services-table">
+    <tr>
+      <th style="width:18%;">Package</th>
+      <th>What's Included</th>
+      <th style="width:18%;">Price (PKR)</th>
+    </tr>
+    <tr>
+      <td><span class="pkg-name">CV Review</span></td>
+      <td>Detailed review, CV score, issues found, action plan, ATS check</td>
+      <td class="price"><span class="old-price">500</span><span class="new-price">400</span><small>(FREE for first review)</small></td>
+    </tr>
+    <tr>
+      <td><span class="pkg-name">CV Rewrite</span><span class="pkg-sub">Starter Package</span></td>
+      <td>Complete CV rewrite, ATS-friendly format, keywords, summary, 1 free revision</td>
+      <td class="price"><span class="old-price">5,000</span><span class="new-price">4,000</span></td>
+    </tr>
+    <tr>
+      <td><span class="pkg-name">CV + LinkedIn</span><span class="pkg-sub">Professional Package</span></td>
+      <td>Everything in Starter + full LinkedIn optimization, headline rewrite, 2 free revisions</td>
+      <td class="price"><span class="old-price">9,000</span><span class="new-price">7,000</span></td>
+    </tr>
+  </table>
+
+  <div class="tags-line">48-Hour Delivery &nbsp;•&nbsp; Local | Gulf | Canada | UK &nbsp;•&nbsp; 1000+ Professionals Helped</div>
+
+  <div class="cta-banner">WhatsApp <a href="https://wa.me/923006622188" target="_blank">+92 300 6622188</a> to get started!</div>
+  <div class="cta-footer">by Umair Arshad | Senior Software Engineer &amp; CV Expert</div>
+
+</div>
+
+<script>
+// ===== Build Score Scale 1-10 =====
+const scoreScale = document.getElementById('scoreScale');
+for(let i=1;i<=10;i++){
+  const pill = document.createElement('label');
+  pill.className = 'score-pill';
+  pill.innerHTML = '<span class="num">'+i+'</span><input type="radio" name="overallScore" value="'+i+'">';
+  scoreScale.appendChild(pill);
+}
+
+// ===== Rubric Data =====
+const rubricData = [
+  {
+    cat: "1. Header & Contact Information",
+    items: [
+      "Profile links included & working (LinkedIn / Portfolio / GitHub)",
+      "Header size is appropriate (not too large)"
+    ]
+  },
+  {
+    cat: "2. Content Quality",
+    items: [
+      "Lists only relevant, confidence-level skills",
+      "Work experience adds value to candidacy",
+      "Bullet points emphasize accomplishments, not just duties",
+      "Content is focused, relevant & well-prioritized"
+    ]
+  },
+  {
+    cat: "3. Writing & Grammar",
+    items: [
+      "Consistent tense, punctuation & sentence format",
+      "Sentences are clear and easy to read"
+    ]
+  },
+  {
+    cat: "4. Design & Formatting",
+    items: [
+      "Design is clean, doesn't distract from content",
+      "Consistent fonts, indentation, bold/italics usage",
+      "Sections clearly separated; appropriate length (0.8-1.25 pages)"
+    ]
+  },
+  {
+    cat: "5. Accuracy",
+    items: [
+      "No spelling or grammatical errors"
+    ]
+  }
+];
+
+const rubricContainer = document.getElementById('rubricContainer');
+rubricData.forEach(function(group, gi){
+  const catDiv = document.createElement('div');
+  catDiv.className = 'rubric-cat';
+  catDiv.textContent = group.cat;
+  rubricContainer.appendChild(catDiv);
+
+  const table = document.createElement('table');
+  table.className = 'rubric-table';
+
+  let html = '<tr><th style="text-align:left;">Criteria</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>';
+  group.items.forEach(function(item, ii){
+    const name = 'rubric_'+gi+'_'+ii;
+    html += '<tr><td class="crit">'+item+'</td>';
+    for(let s=0;s<=3;s++){
+      html += '<td class="score-cell"><input type="radio" name="'+name+'" value="'+s+'"></td>';
+    }
+    html += '</tr>';
+  });
+  table.innerHTML = html;
+  rubricContainer.appendChild(table);
+});
+
+// ===== Feedback checklists (click to select) =====
+const goodItems = [
+  "Clear, well-organized contact information",
+  "LinkedIn / portfolio / GitHub links included and working",
+  "Header size is appropriate, doesn't take up too much space",
+  "Professional summary clearly states career goal",
+  "Strong, relevant skills section (no vague 'stretch' skills)",
+  "Work experience is relevant and adds value to candidacy",
+  "Contains an appropriate number of work experiences (1-4)",
+  "Bullet points highlight measurable achievements, not duties",
+  "Content is tightly focused on the target role / field",
+  "Content is correctly prioritized (most relevant first)",
+  "Consistent and correct verb tense throughout",
+  "Consistent punctuation across all bullet points",
+  "Sentences follow the same grammatical format",
+  "Sentences are clear, concise and easy to read",
+  "Clean, professional design that highlights content",
+  "Consistent indentation throughout",
+  "Uses 1-3 professional, easy-to-read fonts",
+  "Consistent use of bold and italics",
+  "Sections are clearly separated and easy to scan",
+  "Appropriate resume length (0.8 - 1.25 pages)",
+  "No spelling errors",
+  "No grammatical errors",
+  "Good use of industry-relevant keywords (ATS-friendly)",
+  "Education section properly formatted",
+  "Strong, attention-grabbing professional title/headline",
+  "Quantified results (numbers, %, metrics) used effectively",
+  "Extra-curricular content is relevant to the target field",
+  "Resume file is in a suitable, ATS-readable format"
+];
+
+const issueItems = [
+  "Missing or incomplete contact information",
+  "Missing or broken LinkedIn / portfolio / GitHub links",
+  "Header takes up too much page space",
+  "No professional summary at the top",
+  "Skills section lists unrelated, generic, or 'stretch' skills",
+  "Work experience doesn't add value to candidacy",
+  "Too many (5+) or too few (0) work experiences listed",
+  "Bullet points describe duties, not achievements",
+  "Content includes irrelevant information not related to the target role",
+  "Content is poorly prioritized (important sections under-emphasized)",
+  "Inconsistent verb tense across bullet points",
+  "Inconsistent punctuation (mixing periods / no periods)",
+  "Sentences follow inconsistent grammatical format (active/passive mix)",
+  "Sentences are disjointed, overly complex, or hard to read",
+  "Design is too flashy or too plain, distracting from content",
+  "Inconsistent indentation throughout",
+  "Uses unprofessional or too many (4+) different fonts",
+  "Inconsistent use of bold and italics",
+  "Sections not clearly separated",
+  "Resume is too short (under 0.5 page) or too long (2+ pages)",
+  "Spelling errors found",
+  "Grammatical errors found",
+  "Missing industry-relevant keywords (ATS may reject)",
+  "Education section formatting needs improvement",
+  "Weak or missing professional title/headline",
+  "Bullet points lack quantified results (no numbers/metrics)",
+  "Includes 'References available upon request' (unnecessary)",
+  "Photo included where not appropriate (e.g. Gulf/Western CVs)",
+  "Outdated or irrelevant older experience taking up space",
+  "File format not ATS-friendly (e.g. scanned image, complex tables)"
+];
+
+function buildCheckList(containerId, items){
+  const container = document.getElementById(containerId);
+  items.forEach(function(item, i){
+    const row = document.createElement('label');
+    row.className = 'check-item';
+    row.innerHTML = '<input type="checkbox"><span>'+item+'</span>';
+    const cb = row.querySelector('input');
+    cb.addEventListener('change', function(){
+      row.classList.toggle('is-checked', cb.checked);
+    });
+    container.appendChild(row);
+  });
+}
+buildCheckList('goodList', goodItems);
+buildCheckList('issuesList', issueItems);
+
+// Action plan stays as free-text rows
+function buildFeedbackList(containerId, count, placeholder){
+  const container = document.getElementById(containerId);
+  for(let i=1;i<=count;i++){
+    const row = document.createElement('div');
+    row.className = 'feedback-row';
+    row.innerHTML = '<span class="num">'+i+'.</span><input type="text" placeholder="'+placeholder+'">';
+    container.appendChild(row);
+  }
+}
+buildFeedbackList('actionList', 3, 'e.g. Rewrite bullet points to highlight measurable results');
+
+// ===== ATS Table =====
+const atsItems = [
+  "ATS-Friendly Format (no tables/columns/graphics issues)",
+  "Relevant industry keywords present",
+  "Standard section headings used",
+  "File format suitable (PDF/Word)"
+];
+const atsTable = document.getElementById('atsTable');
+atsItems.forEach(function(item, i){
+  const tr = document.createElement('tr');
+  tr.innerHTML =
+    '<td class="q">'+item+'</td>'+
+    '<td><div class="yn">'+
+    '<label><input type="radio" name="ats_'+i+'"> Yes</label>'+
+    '<label><input type="radio" name="ats_'+i+'"> No</label>'+
+    '</div></td>';
+  atsTable.appendChild(tr);
+});
+
+// ===== Chip toggle styling =====
+document.querySelectorAll('.chip input[type="radio"]').forEach(function(input){
+  input.addEventListener('change', function(){
+    const group = input.closest('.chip-group');
+    group.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('checked'); });
+    input.closest('.chip').classList.add('checked');
+  });
+});
+
+// ===== Clear form =====
+function clearForm(){
+  if(!confirm('Clear all entered data?')) return;
+  document.querySelectorAll('input[type="text"]').forEach(function(i){ i.value = ''; });
+  document.querySelectorAll('input[type="radio"]').forEach(function(i){ i.checked = false; });
+  document.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('checked'); });
+}
+
+// ===== Export PDF =====
+function exportPDF(){
+  const sheet = document.getElementById('sheet');
+
+  // Hide empty action-plan rows for export
+  document.querySelectorAll('#actionList .feedback-row').forEach(function(row){
+    const input = row.querySelector('input');
+    if(!input.value.trim()){
+      row.style.display = 'none';
+    }
+  });
+
+  sheet.classList.add('pdf-mode');
+
+  const opt = {
+    margin:       [10, 8, 10, 8],
+    filename:     'CV_Review_Report.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+
+  html2pdf().set(opt).from(sheet).save().then(function(){
+    sheet.classList.remove('pdf-mode');
+    // Restore hidden action rows
+    document.querySelectorAll('#actionList .feedback-row').forEach(function(row){
+      row.style.display = '';
+    });
+  });
+}
+</script>
+</body>
+</html>
